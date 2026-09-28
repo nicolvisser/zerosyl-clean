@@ -1,0 +1,21 @@
+ZeroSyl
+Copyright (c) 2026 Nicol Visser, Simon Malan, Danel Slabbert, Herman Kamper
+
+The WavLM encoder in zerosyl/wavlm/ follows Benjamin van Niekerk's
+(@bshall, https://github.com/bshall) implementation.
+
+That implementation is derived from HuggingFace Transformers
+(https://github.com/huggingface/transformers), specifically the WavLM
+encoder in src/transformers/models/wavlm/modeling_wavlm.py.
+
+  Copyright 2021 The Fairseq Authors, Microsoft Research, and
+  The HuggingFace Inc. team. All rights reserved.
+
+That encoder is licensed under the Apache License, Version 2.0.
+A copy of the license is in LICENSE-APACHE.
+
+WavLM (architecture and official checkpoints):
+
+  Sanyuan Chen et al., "WavLM: Large-Scale Self-Supervised Pre-Training
+  for Full Stack Speech Processing", https://arxiv.org/abs/2110.13900
+  Microsoft UniLM (MIT): https://github.com/microsoft/unilm/tree/master/wavlm
