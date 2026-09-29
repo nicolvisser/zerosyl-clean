@@ -1,3 +1,15 @@
+"""
+This module contains an inference class for quantizing the syllable features to discrete IDs.
+This involves two steps. First quantize with spherical K-means, then collapse certain codebook
+entries to silences (see the original paper and research repo @ https://github.com/nicolvisser/ZeroSyl
+for more info). But basically you need to identify whether each codebook entry represents a silence or
+not and then have a mapping from original codebook id to the new contiguous and smaller vocab.
+To train such a mapping you can follow one of two approaches. (1) Follow the agglomerative clustering
+approach in ZeroSyl (2) OR use a VAD system and a small dataset to find out which clusters map to silences
+most often.
+"""
+
+
 from dataclasses import dataclass
 from pathlib import Path
 

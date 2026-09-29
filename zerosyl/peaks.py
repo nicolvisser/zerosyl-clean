@@ -1,3 +1,13 @@
+"""
+In the original research repo (https://github.com/nicolvisser/ZeroSyl) we used scipy.signal.find_peaks
+to do prominence-based peak detection. This requires you to move the signal to the CPU first. So here
+we have a find_peaks function that does the peak detection on the GPU. If you call it with use_cupy=False,
+the implementation is pure torch and needs no other libraries. However, this is quite inefficient in terms of
+VRAM usage. So if you want the peak detection to run online while training a model you should rather keep
+the default use_cupy=True. This uses a custom kernel to do the peak detection efficiently (about 2x faster,
+and orders of magnitude less VRAM usage). You need to install a version of cupy compatible with your cuda version.
+"""
+
 import torch
 
 # --- CUDA kernels ---
