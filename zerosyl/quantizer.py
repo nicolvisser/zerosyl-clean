@@ -64,7 +64,8 @@ class FeatureQuantizer(nn.Module):
 
     @property
     def vocab_size(self) -> int:
-        return int((~self.silences).sum().item())
+        # Speech ids are 0 .. sil_token_id-1; silence occupies sil_token_id.
+        return self.sil_token_id + 1
 
     def forward(self, features: torch.Tensor) -> torch.Tensor:
         if features.ndim == 2:
